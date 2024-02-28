@@ -30,7 +30,11 @@ const Home = () => {
           </span>
         </h1>
         <label className="mt-6 mb-2 input input-bordered input-primary flex w-full max-w-xs md:max-w-md items-center justify-between right-0 gap-2">
-          <input type="text" className="grow" placeholder="Search Anime" />
+          <input
+            type="text"
+            className="grow"
+            placeholder="Search Anime or Manga"
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
