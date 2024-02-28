@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Montserrat } from "next/font/google";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Muminime",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
