@@ -2,6 +2,7 @@
 import { GiMummyHead } from "react-icons/gi";
 import { Typewriter } from "react-simple-typewriter";
 import Link from "next/link";
+import SearchBox from "@/components/SearchBox";
 const Home = () => {
   return (
     <div className="container mx-auto px-4 flex justify-center items-center min-h-screen">
@@ -29,39 +30,7 @@ const Home = () => {
             />
           </span>
         </h1>
-        <label className="mt-6 mb-2 input input-bordered input-primary flex w-full max-w-xs md:max-w-md items-center justify-between right-0 gap-2">
-          <input
-            type="text"
-            className="grow"
-            placeholder="Search Anime or Manga"
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="w-4 h-4 opacity-70"
-          >
-            <path
-              fillRule="evenodd"
-              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </label>
-        <div className="flex text-center max-w-xs md:max-w-md px-2 justify-around w-full gap-4 items-center">
-          <Link
-            href="/search/anime"
-            className="btn btn-outline w-1/2 btn-primary rounded-lg"
-          >
-            Search Anime
-          </Link>
-          <Link
-            href="/search/manga"
-            className="btn btn-outline w-1/2 btn-primary rounded-lg"
-          >
-            Search Manga
-          </Link>
-        </div>
+        <SearchBox />
         <div className="flex flex-col mt-6 items-center justify-center">
           <Link
             href="/login"
