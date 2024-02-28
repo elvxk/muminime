@@ -15,7 +15,7 @@ const TopAnime = () => {
 
   return (
     <div className="container mx-auto px-4 pt-[10vh]">
-      <h1 className="text-xl font-bold">TOP ANIME</h1>
+      <h1 className="text-xl font-bold text-center">TOP ANIME</h1>
       <CardList api={topAnime} />
     </div>
   );

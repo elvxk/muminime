@@ -5,16 +5,16 @@ import Link from "next/link";
 const Home = () => {
   return (
     <div className="container mx-auto px-4 flex justify-center items-center min-h-screen">
-      <div className="flex flex-col gap-2 justify-center items-center">
-        <GiMummyHead className="text-6xl lg:text-8xl fill-accent-content hover:scale-110 transition-all" />
-        <h1 className="text-2xl lg:text-4xl font-bold text-center">
+      <div className="flex flex-col gap-2 justify-center w-full items-center">
+        <GiMummyHead className="text-6xl md:text-8xl fill-accent-content hover:scale-110 transition-all" />
+        <h1 className="text-2xl md:text-4xl text-primary font-bold text-center">
           Welcome to <span className="text-accent-content">MUMI</span>
           NIME
         </h1>
-        <h1 className="text-sm lg:text-lg gap-2 flex font-bold text-center text-primary-content bg-primary px-2">
+        <h1 className="text-sm md:text-lg gap-2 flex font-bold text-center text-primary-content bg-primary px-2">
           <span className="hidden sm:block">Best website information for</span>
           <span className="block sm:hidden">Information for</span>
-          <span className="text-accent-content">
+          <span className="text-base-100">
             <Typewriter
               loop
               cursor
@@ -29,7 +29,7 @@ const Home = () => {
             />
           </span>
         </h1>
-        <label className="my-4 input input-bordered flex items-center lg:w-full gap-2">
+        <label className="mt-6 mb-2 input input-bordered input-primary flex w-full max-w-xs md:max-w-md items-center justify-between right-0 gap-2">
           <input type="text" className="grow" placeholder="Search Anime" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,23 +44,34 @@ const Home = () => {
             />
           </svg>
         </label>
-        <div className="flex gap-2">
+        <div className="flex text-center max-w-xs md:max-w-md px-2 justify-around w-full gap-4 items-center">
           <Link
-            href="/top/anime"
-            className="btn btn-outline btn-primary rounded-full"
+            href="/search/anime"
+            className="btn btn-outline w-1/2 btn-primary rounded-lg"
           >
-            Top Anime
+            Search Anime
           </Link>
           <Link
-            href="/top/manga"
-            className="btn btn-outline btn-primary rounded-full"
+            href="/search/manga"
+            className="btn btn-outline w-1/2 btn-primary rounded-lg"
           >
-            Top Manga
+            Search Manga
           </Link>
         </div>
-        <a href="" className="text-accent-content">
-          Login
-        </a>
+        <div className="flex flex-col mt-6 items-center justify-center">
+          <Link
+            href="/login"
+            className="text-accent-content hover:text-primary transition-all"
+          >
+            Login
+          </Link>
+          <Link
+            href="/register"
+            className="text-accent-content hover:text-primary transition-all"
+          >
+            Register
+          </Link>
+        </div>
       </div>
     </div>
   );
