@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { FaStar, FaStop, FaPlay } from "react-icons/fa";
+import Image from "next/image";
 
 interface IfTopAnime {
   id: number;
@@ -22,13 +23,16 @@ const Card: React.FC<IfTopAnime> = ({
   return (
     <Link
       href={`/${id}`}
-      className="border-4 hover:border-primary border-transparent group card mt-8 w-full bg-neutral shadow-xl h-full transition-all"
+      className="border-4 duration-700 hover:border-primary border-transparent group card mt-8 w-full bg-neutral shadow-xl h-full transition-all"
     >
       <figure className="max-h-96 rounded-xl">
-        <img
+        <Image
           src={image}
           alt={title}
-          className="object-cover w-full h-full group-hover:scale-110 transition-all"
+          width={300}
+          height={300}
+          priority
+          className="object-cover w-full h-full group-hover:scale-105 transition-all duration-700"
         />
       </figure>
       <div className="card-body justify-between items-center -my-2">
