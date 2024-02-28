@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navbar from "@/app/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "My Nime 👒",
+  title: "Muminime",
   description: "Web for listing your fav anime",
 };
 

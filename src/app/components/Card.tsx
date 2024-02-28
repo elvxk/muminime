@@ -1,8 +1,29 @@
-import { FaStar, FaStop, FaPlay, FaCalendarTimes } from "react-icons/fa";
-const Card = (props: any) => {
-  const { title, image, score, status, year, airing, jpn_title } = props;
+/* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+import { FaStar, FaStop, FaPlay } from "react-icons/fa";
+
+interface IfTopAnime {
+  id: number;
+  title: string;
+  image: string;
+  score: number;
+  airing: boolean;
+  status: string;
+}
+
+const Card: React.FC<IfTopAnime> = ({
+  id,
+  title,
+  image,
+  score,
+  airing,
+  status,
+}) => {
   return (
-    <div className="border-4 hover:border-primary border-transparent group card mt-8 w-full bg-neutral shadow-xl h-full transition-all">
+    <Link
+      href={`/${id}`}
+      className="border-4 hover:border-primary border-transparent group card mt-8 w-full bg-neutral shadow-xl h-full transition-all"
+    >
       <figure className="max-h-96 rounded-xl">
         <img
           src={image}
@@ -27,7 +48,7 @@ const Card = (props: any) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 export default Card;
