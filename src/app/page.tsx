@@ -1,8 +1,8 @@
 "use client";
+import SearchBox from "@/components/SearchBox";
+import Link from "next/link";
 import { GiMummyHead } from "react-icons/gi";
 import { Typewriter } from "react-simple-typewriter";
-import Link from "next/link";
-import SearchBox from "@/components/SearchBox";
 const Home = () => {
   return (
     <div className="container mx-auto px-4 flex justify-center items-center min-h-screen">
