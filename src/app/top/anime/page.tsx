@@ -2,7 +2,7 @@ import { apiHit } from "@/libs/api";
 import CardList from "@/components/CardList";
 
 const TopAnime = async () => {
-  const topAnime = await apiHit("/top/anime")
+  const listing = await apiHit("/top/anime")
     .then(({ data }) => {
       return data;
     })
@@ -12,8 +12,8 @@ const TopAnime = async () => {
 
   return (
     <div className="container mx-auto px-4 pt-[10vh]">
-      <h1 className="text-xl font-bold text-center">TOP ANIME</h1>
-      <CardList api={topAnime} />
+      <h1 className="page text-xl font-bold text-center">TOP ANIME</h1>
+      <CardList api={listing} />
     </div>
   );
 };
