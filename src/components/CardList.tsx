@@ -22,7 +22,7 @@ const CardList = ({
   isLoading,
 }: {
   api: IfTopAnime[];
-  isLoading: boolean;
+  isLoading?: boolean;
 }) => {
   return (
     <>
