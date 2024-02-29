@@ -2740,9 +2740,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mynime@workspace:.":
+"muminime@workspace:.":
   version: 0.0.0-use.local
-  resolution: "mynime@workspace:."
+  resolution: "muminime@workspace:."
   dependencies:
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"

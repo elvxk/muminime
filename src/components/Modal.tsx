@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GiMummyHead } from "react-icons/gi";
-const Modal = ({ message }) => {
+const Modal = ({ message }: { message: string }) => {
   return (
     <dialog id="modal" className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">
