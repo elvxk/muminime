@@ -35,7 +35,8 @@ const CardList: React.FC<Props> = ({ api }) => {
                 alt={anime.title}
                 width={420}
                 height={420}
-                priority
+                placeholder="blur"
+                blurDataURL={anime.images.webp.image_url}
                 className="object-cover w-full h-full group-hover:scale-105 transition-all duration-700"
               />
             </figure>
