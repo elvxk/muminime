@@ -79,9 +79,9 @@ const Navbar = () => {
         <div className="container px-10 mx-auto flex gap-2 text-center text-xl font-bold text-primary-content flex-col h-full justify-center items-center">
           <GiMummyHead className="text-6xl duration-500 rotate-0 hover:rotate-[1080deg] text-primary bg-primary-content p-2 rounded-full mb-6 hover:scale-150 scale-125 transition-all" />
           <NavbarBtn href="/" text="HOME" />
-          <NavbarBtn href="/top/anime" text="TOP ANIME" />
-          <NavbarBtn href="/top/manga" text="TOP MANGA" />
-          <NavbarBtn href="/top/character" text="TOP CHARACTER" />
+          <NavbarBtn href="/anime" text="ANIME" />
+          <NavbarBtn href="/manga" text="MANGA" />
+          <NavbarBtn href="/character" text="CHARACTER" />
           <div className="flex flex-col justify-center gap-2 w-full items-center text-sm mt-6 text-white">
             <Link
               href="/login"
