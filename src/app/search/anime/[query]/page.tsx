@@ -1,4 +1,5 @@
 import CardList from "@/components/CardList";
+import SearchBox from "@/components/SearchBox";
 import { apiHit } from "@/libs/api";
 
 const SearchAnime = async ({ params }: { params: { query: string } }) => {
@@ -13,10 +14,11 @@ const SearchAnime = async ({ params }: { params: { query: string } }) => {
     });
 
   return (
-    <div className="container mx-auto px-4 pt-[10vh]">
+    <div className="container mx-auto px-4 pt-[10vh] flex justify-center flex-col items-center">
       <h1 className="text-xl font-bold text-center uppercase">
         RESULT SEARCH for {decodeURI(query)}
       </h1>
+      <SearchBox panime />
       <CardList api={listing} />
     </div>
   );
