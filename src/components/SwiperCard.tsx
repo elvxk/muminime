@@ -12,6 +12,9 @@ interface IAnime {
     webp: {
       image_url: string;
     };
+    jpg: {
+      image_url: string;
+    };
   };
   score: number;
   airing: boolean;
@@ -49,7 +52,7 @@ const SwiperCard = ({ data }: { data: IAnime[] }) => {
               <figure className="relative max-h-96 rounded-xl">
                 <Image
                   src={api.images.webp.image_url}
-                  alt={api.title}
+                  alt={api.images.jpg.image_url}
                   width={420}
                   height={420}
                   placeholder="blur"

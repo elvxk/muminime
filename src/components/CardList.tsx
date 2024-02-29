@@ -11,6 +11,9 @@ interface IfTopAnime {
     webp: {
       image_url: string;
     };
+    jpg: {
+      image_url: string;
+    };
   };
   score: number;
   airing: boolean;
@@ -40,7 +43,7 @@ const CardList = ({
                 <figure className="max-h-96 rounded-xl">
                   <Image
                     src={anime.images.webp.image_url}
-                    alt={anime.title}
+                    alt={anime.images.jpg.image_url}
                     width={420}
                     height={420}
                     placeholder="blur"
