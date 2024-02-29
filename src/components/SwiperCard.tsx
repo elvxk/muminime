@@ -20,7 +20,7 @@ interface IAnime {
   airing: boolean;
   status: string;
 }
-const SwiperCard = ({ data }: { data: IAnime[] }) => {
+const SwiperCard = ({ data, type }: { data: IAnime[]; type: string }) => {
   return (
     <Swiper
       modules={[Autoplay, Navigation]}
@@ -46,7 +46,7 @@ const SwiperCard = ({ data }: { data: IAnime[] }) => {
         return (
           <SwiperSlide key={i}>
             <Link
-              href={`/${api.mal_id}`}
+              href={`/${type}/detail/${api.mal_id}`}
               className="h-[168px] border-4 duration-700 hover:border-primary border-transparent group card w-full bg-neutral shadow-xl transition-all"
             >
               <figure className="relative max-h-96 rounded-xl">

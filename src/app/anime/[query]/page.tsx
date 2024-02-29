@@ -13,7 +13,7 @@ const Page = async ({ params }: { params: { query: string } }) => {
       </h1>
       <SearchBox panime />
       {listing.data.length > 0 ? (
-        <CardList api={listing.data} />
+        <CardList api={listing.data} type="anime" />
       ) : (
         <div className="mt-20">
           <h1 className="text-lg text-primary-content p-2 font-bold text-center uppercase bg-primary">

@@ -62,7 +62,7 @@ const Page = () => {
           </button>
         )}
       </div>
-      <CardList api={topAnime.data} isLoading={isLoading} />
+      <CardList api={topAnime.data} isLoading={isLoading} type="anime" />
       <div className="join my-20">
         {page > 1 && (
           <button

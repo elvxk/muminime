@@ -21,9 +21,11 @@ interface IfTopAnime {
 }
 
 const CardList = ({
+  type,
   api,
   isLoading,
 }: {
+  type: string;
   api: IfTopAnime[];
   isLoading?: boolean;
 }) => {
@@ -37,7 +39,7 @@ const CardList = ({
             return (
               <Link
                 key={i}
-                href={`/${anime.mal_id}`}
+                href={`/${type}/detail/${anime.mal_id}`}
                 className="border-4 duration-700 hover:border-primary border-transparent group card mt-8 w-full bg-neutral shadow-xl h-full transition-all"
               >
                 <figure className="max-h-96 rounded-xl">

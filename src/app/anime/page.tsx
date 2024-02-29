@@ -25,7 +25,7 @@ const Page = async () => {
           more <FaRegHandPointRight />
         </Link>
       </div>
-      <SwiperCard data={topAnime.data} />
+      <SwiperCard data={topAnime.data} type="anime" />
       <div className="flex justify-between items-center mt-8 lg:mt-12">
         <h1 className="page text-xl font-bold text-primary">
           RECOMMENDATION ANIME
@@ -37,7 +37,7 @@ const Page = async () => {
           more <FaRegHandPointRight />
         </Link>
       </div>
-      <SwiperCard data={recAnime.data} />
+      <SwiperCard data={recAnime.data} type="anime" />
     </div>
   );
 };
