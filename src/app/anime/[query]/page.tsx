@@ -4,14 +4,7 @@ import { apiHit } from "@/libs/api";
 
 const SearchAnime = async ({ params }: { params: { query: string } }) => {
   const { query } = params;
-
-  const listing = await apiHit(`/anime?q=${decodeURI(query)}`)
-    .then(({ data }) => {
-      return data;
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+  const listing = await apiHit(`/anime?q=${decodeURI(query)}`);
 
   return (
     <div className="container mx-auto px-4 pt-[10vh] flex justify-center flex-col items-center">
@@ -19,8 +12,8 @@ const SearchAnime = async ({ params }: { params: { query: string } }) => {
         RESULT SEARCH for {decodeURI(query)}
       </h1>
       <SearchBox panime />
-      {listing.length > 0 ? (
-        <CardList api={listing} />
+      {listing.data.length > 0 ? (
+        <CardList api={listing.data} />
       ) : (
         <div className="mt-20">
           <h1 className="text-lg text-primary-content p-2 font-bold text-center uppercase bg-primary">

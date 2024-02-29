@@ -8,14 +8,13 @@ const api = rateLimit(axios.create(), {
 });
 
 export const apiHit = async (url: string) => {
-  try {
-    const res = await api.get(`${API_URL}${url}`);
-    if (res.status != 200) {
-      throw new Error(res.statusText);
-    } else {
+  const res = api
+    .get(`${API_URL}${url}`)
+    .then((res) => {
       return res.data;
-    }
-  } catch (e) {
-    console.log(e);
-  }
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+  return res;
 };
