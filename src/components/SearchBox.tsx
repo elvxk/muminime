@@ -2,7 +2,13 @@ import { useRouter } from "next/navigation";
 import { SyntheticEvent, useRef } from "react";
 import Modal from "./Modal";
 
-const SearchBox = () => {
+const SearchBox = ({
+  panime,
+  pmanga,
+}: {
+  panime?: boolean;
+  pmanga?: boolean;
+}) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
 
@@ -19,6 +25,7 @@ const SearchBox = () => {
       (document.getElementById("modal") as HTMLFormElement).showModal();
     }
   };
+
   return (
     <>
       <Modal message="Please enter a keyword of at least 3 characters" />
@@ -43,20 +50,24 @@ const SearchBox = () => {
         </svg>
       </label>
       <div className="flex text-center max-w-xs md:max-w-md px-2 justify-around w-full gap-4 items-center">
-        <button
-          id="anime"
-          onClick={(e) => handleClick(e)}
-          className="btn btn-outline w-1/2 btn-primary rounded-lg"
-        >
-          Search Anime
-        </button>
-        <button
-          id="manga"
-          onClick={(e) => handleClick(e)}
-          className="btn btn-outline w-1/2 btn-primary rounded-lg"
-        >
-          Search Manga
-        </button>
+        {panime && (
+          <button
+            id="anime"
+            onClick={(e) => handleClick(e)}
+            className="btn btn-outline w-1/2 btn-primary rounded-lg"
+          >
+            Search Anime
+          </button>
+        )}
+        {pmanga && (
+          <button
+            id="manga"
+            onClick={(e) => handleClick(e)}
+            className="btn btn-outline w-1/2 btn-primary rounded-lg"
+          >
+            Search Manga
+          </button>
+        )}
       </div>
     </>
   );

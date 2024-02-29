@@ -30,7 +30,7 @@ const Home = () => {
             />
           </span>
         </h1>
-        <SearchBox />
+        <SearchBox panime pmanga />
         <div className="flex flex-col mt-6 items-center justify-center">
           <Link
             href="/login"
