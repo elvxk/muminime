@@ -78,10 +78,18 @@ const Navbar = () => {
       >
         <div className="container px-10 mx-auto flex gap-2 text-center text-xl font-bold text-primary-content flex-col h-full justify-center items-center">
           <GiMummyHead className="text-6xl duration-500 rotate-0 hover:rotate-[1080deg] text-primary bg-primary-content p-2 rounded-full mb-6 hover:scale-150 scale-125 transition-all" />
-          <NavbarBtn href="/" text="HOME" />
-          <NavbarBtn href="/anime" text="ANIME" />
-          <NavbarBtn href="/manga" text="MANGA" />
-          <NavbarBtn href="/character" text="CHARACTER" />
+          <button onClick={() => setIsOpen((prev) => !prev)}>
+            <NavbarBtn href="/" text="HOME" />
+          </button>
+          <button onClick={() => setIsOpen((prev) => !prev)}>
+            <NavbarBtn href="/anime" text="ANIME" />
+          </button>
+          <button onClick={() => setIsOpen((prev) => !prev)}>
+            <NavbarBtn href="/manga" text="MANGA" />
+          </button>
+          <button onClick={() => setIsOpen((prev) => !prev)}>
+            <NavbarBtn href="/character" text="CHARACTER" />
+          </button>
           <div className="flex flex-col justify-center gap-2 w-full items-center text-sm mt-6 text-white">
             <Link
               href="/login"
