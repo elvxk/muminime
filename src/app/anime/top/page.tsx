@@ -1,6 +1,6 @@
 "use client";
-import { apiHit } from "@/libs/api";
 import CardList from "@/components/CardList";
+import { apiHit } from "@/libs/api";
 import { SyntheticEvent, useEffect, useState } from "react";
 
 const Page = () => {

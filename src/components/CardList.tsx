@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
-import { FaStar, FaStop, FaPlay } from "react-icons/fa";
-import Image from "next/image";
 import Loading from "@/app/loading";
+import Image from "next/image";
+import Link from "next/link";
+import { FaPlay, FaStar, FaStop } from "react-icons/fa";
 
 interface IfTopAnime {
   mal_id: number;

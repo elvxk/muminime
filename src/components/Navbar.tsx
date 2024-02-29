@@ -1,9 +1,9 @@
 "use client";
+import Link from "next/link";
+import { useState } from "react";
 import { GiMummyHead } from "react-icons/gi";
 import { IoMdLogIn, IoMdPersonAdd } from "react-icons/io";
 import { LiaHandPointUp } from "react-icons/lia";
-import Link from "next/link";
-import { useState } from "react";
 import NavbarBtn from "./NavbarBtn";
 
 const Navbar = () => {
