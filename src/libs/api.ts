@@ -7,13 +7,15 @@ const api = rateLimit(axios.create(), {
   perMilliseconds: 1000, // Periode waktu dalam milidetik (misalnya, 1000 ms = 1 detik)
 });
 
-export const getTopAnime = (callback: any) => {
-  api
-    .get(`${API_URL}/top/anime`)
-    .then(({ data }) => {
-      callback({ anime: data.data, status: 200 });
-    })
-    .catch((e) => {
-      console.error(e);
-    });
+export const apiHit = async (url: string) => {
+  try {
+    const res = await api.get(`${API_URL}${url}`);
+    if (res.status != 200) {
+      throw new Error(res.statusText);
+    } else {
+      return res.data;
+    }
+  } catch (e) {
+    console.log(e);
+  }
 };
