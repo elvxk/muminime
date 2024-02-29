@@ -7,11 +7,22 @@ const api = rateLimit(axios.create(), {
   perMilliseconds: 1000, // Periode waktu dalam milidetik (misalnya, 1000 ms = 1 detik)
 });
 
-export const apiHit = async (url: string) => {
+export const apiHit = (url: string) => {
   const res = api
     .get(`${API_URL}${url}`)
     .then((res) => {
       return res.data;
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+  return res;
+};
+
+export const apiHitNest = (url: string) => {
+  const res = apiHit(url)
+    .then((res) => {
+      return res.data.flatMap((mumi: any) => mumi.entry);
     })
     .catch((e) => {
       console.error(e);

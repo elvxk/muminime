@@ -18,9 +18,9 @@ const SearchBox = ({
 
     const keyword = inputRef.current?.value!;
     const clicked = e.currentTarget.id;
-    const destination = `/${clicked}/${keyword}`;
+    const destination = `/${clicked}/${keyword.replace(/\s+/g, " ").replace(/^\s+/g, "")}`;
 
-    if (keyword.length > 3) {
+    if (keyword.replace(/\s/g, "").length > 3 && keyword.trim() != "") {
       router.push(destination);
     } else {
       (document.getElementById("modal") as HTMLFormElement).showModal();
