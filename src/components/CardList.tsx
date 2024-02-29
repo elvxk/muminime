@@ -22,10 +22,10 @@ interface Props {
 const CardList: React.FC<Props> = ({ api }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {api.map((anime) => {
+      {api.map((anime, i) => {
         return (
           <Link
-            key={anime.mal_id}
+            key={i}
             href={`/${anime.mal_id}`}
             className="border-4 duration-700 hover:border-primary border-transparent group card mt-8 w-full bg-neutral shadow-xl h-full transition-all"
           >
