@@ -31,7 +31,8 @@ const Card: React.FC<IfTopAnime> = ({
           alt={title}
           width={300}
           height={300}
-          priority
+          placeholder="blur"
+          blurDataURL={image}
           className="object-cover w-full h-full group-hover:scale-105 transition-all duration-700"
         />
       </figure>
