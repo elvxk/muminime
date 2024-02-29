@@ -1,17 +1,14 @@
-"use client";
-import { useEffect, useState } from "react";
-import { getTopAnime } from "@/libs/api";
+import { apiHit } from "@/libs/api";
 import CardList from "@/components/CardList";
 
-const TopAnime = () => {
-  const [topAnime, setTopAnime] = useState([]);
-  useEffect(() => {
-    getTopAnime((top: any) => {
-      if (top.status == 200) {
-        setTopAnime(top.anime);
-      }
+const TopAnime = async () => {
+  const topAnime = await apiHit("/top/anime")
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((e) => {
+      console.log(e);
     });
-  }, []);
 
   return (
     <div className="container mx-auto px-4 pt-[10vh]">
@@ -20,4 +17,5 @@ const TopAnime = () => {
     </div>
   );
 };
+
 export default TopAnime;
