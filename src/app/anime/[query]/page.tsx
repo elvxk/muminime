@@ -2,7 +2,7 @@ import CardList from "@/components/CardList";
 import SearchBox from "@/components/SearchBox";
 import { apiHit } from "@/libs/api";
 
-const SearchAnime = async ({ params }: { params: { query: string } }) => {
+const Page = async ({ params }: { params: { query: string } }) => {
   const { query } = params;
   const listing = await apiHit(`/anime?q=${decodeURI(query)}`);
 
@@ -25,4 +25,4 @@ const SearchAnime = async ({ params }: { params: { query: string } }) => {
   );
 };
 
-export default SearchAnime;
+export default Page;

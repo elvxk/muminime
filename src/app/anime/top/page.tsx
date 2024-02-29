@@ -3,7 +3,7 @@ import { apiHit } from "@/libs/api";
 import CardList from "@/components/CardList";
 import { SyntheticEvent, useEffect, useState } from "react";
 
-const TopAnime = () => {
+const Page = () => {
   const [page, setPage] = useState(1);
   const [topAnime, setTopAnime] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -88,4 +88,4 @@ const TopAnime = () => {
   );
 };
 
-export default TopAnime;
+export default Page;

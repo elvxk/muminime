@@ -4,7 +4,7 @@ import { apiHit } from "@/libs/api";
 import Link from "next/link";
 import { FaRegHandPointRight } from "react-icons/fa";
 
-const AnimePage = async () => {
+const Page = async () => {
   const topAnime = await apiHit("/top/anime?limit=10")
     .then(({ data }) => {
       return data;
@@ -42,4 +42,4 @@ const AnimePage = async () => {
     </div>
   );
 };
-export default AnimePage;
+export default Page;

@@ -3,7 +3,7 @@ import SearchBox from "@/components/SearchBox";
 import Link from "next/link";
 import { GiMummyHead } from "react-icons/gi";
 import { Typewriter } from "react-simple-typewriter";
-const Home = () => {
+const Page = () => {
   return (
     <div className="container mx-auto px-4 flex justify-center items-center min-h-screen">
       <div className="flex flex-col gap-2 justify-center w-full items-center">
@@ -49,4 +49,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default Page;
