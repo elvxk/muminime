@@ -18,7 +18,7 @@ const SearchBox = ({
 
     const keyword = inputRef.current?.value!;
     const clicked = e.currentTarget.id;
-    const destination = `/search/${clicked}/${keyword}`;
+    const destination = `/${clicked}/${keyword}`;
 
     if (keyword.length > 3) {
       router.push(destination);
