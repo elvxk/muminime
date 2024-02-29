@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/navigation";
 import { SyntheticEvent, useRef } from "react";
 import Modal from "./Modal";
