@@ -1,15 +1,15 @@
 "use client";
 import { apiHit } from "@/libs/api";
 import CardList from "@/components/CardList";
-import { useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 
 const TopAnime = () => {
   const [page, setPage] = useState(1);
   const [topAnime, setTopAnime] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetcher = async () => {
-    await apiHit(`/top/anime?page=${page}`)
+  const fetcher = () => {
+    apiHit(`/top/anime?page=${page}`)
       .then((data) => {
         setTopAnime(data);
       })
@@ -22,24 +22,19 @@ const TopAnime = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetcher();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
-  const handleNext = () => {
-    setPage(page + 1);
-    scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
-  };
+  const handlePage = (e: SyntheticEvent, destination: string) => {
+    e.preventDefault();
 
-  const handlePrev = () => {
-    setPage(page - 1);
-    scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
+    if (destination == "prev") {
+      setPage(page - 1);
+    } else if (destination == "next") {
+      setPage(page + 1);
+    }
   };
 
   return (
@@ -47,7 +42,11 @@ const TopAnime = () => {
       <h1 className="mb-4 page text-xl font-bold text-center">TOP ANIME</h1>
       <div className="join">
         {page > 1 && (
-          <button className="join-item btn" onClick={() => setPage(page - 1)}>
+          <button
+            id="topprev"
+            className="join-item btn"
+            onClick={(e) => handlePage(e, "prev")}
+          >
             «
           </button>
         )}
@@ -55,7 +54,10 @@ const TopAnime = () => {
           Page {page} / {topAnime.pagination?.last_visible_page}
         </button>
         {topAnime.pagination?.has_next_page && (
-          <button className="join-item btn" onClick={() => setPage(page + 1)}>
+          <button
+            className="join-item btn"
+            onClick={(e) => handlePage(e, "next")}
+          >
             »
           </button>
         )}
@@ -63,7 +65,10 @@ const TopAnime = () => {
       <CardList api={topAnime.data} isLoading={isLoading} />
       <div className="join my-20">
         {page > 1 && (
-          <button className="join-item btn" onClick={handlePrev}>
+          <button
+            className="join-item btn"
+            onClick={(e) => handlePage(e, "prev")}
+          >
             «
           </button>
         )}
@@ -71,7 +76,10 @@ const TopAnime = () => {
           Page {page} / {topAnime.pagination?.last_visible_page}
         </button>
         {topAnime.pagination?.has_next_page && (
-          <button className="join-item btn" onClick={handleNext}>
+          <button
+            className="join-item btn"
+            onClick={(e) => handlePage(e, "next")}
+          >
             »
           </button>
         )}
