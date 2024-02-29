@@ -1,18 +1,22 @@
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { SyntheticEvent, useRef } from "react";
 import Modal from "./Modal";
 
 const SearchBox = () => {
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    const destination = `/search/${event.target.name}/${inputRef.current.value}`;
-    if (inputRef.current.value.length > 3) {
+  const handleClick = (e: SyntheticEvent) => {
+    e.preventDefault();
+
+    const keyword = inputRef.current?.value!;
+    const clicked = e.currentTarget.id;
+    const destination = `/search/${clicked}/${keyword}`;
+
+    if (keyword.length > 3) {
       router.push(destination);
     } else {
-      document.getElementById("modal").showModal();
+      (document.getElementById("modal") as HTMLFormElement).showModal();
     }
   };
   return (
@@ -40,15 +44,15 @@ const SearchBox = () => {
       </label>
       <div className="flex text-center max-w-xs md:max-w-md px-2 justify-around w-full gap-4 items-center">
         <button
-          name="anime"
-          onClick={handleClick}
+          id="anime"
+          onClick={(e) => handleClick(e)}
           className="btn btn-outline w-1/2 btn-primary rounded-lg"
         >
           Search Anime
         </button>
         <button
-          name="manga"
-          onClick={handleClick}
+          id="manga"
+          onClick={(e) => handleClick(e)}
           className="btn btn-outline w-1/2 btn-primary rounded-lg"
         >
           Search Manga
