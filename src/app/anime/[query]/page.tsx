@@ -5,7 +5,7 @@ import { apiHit } from "@/libs/api";
 const SearchAnime = async ({ params }: { params: { query: string } }) => {
   const { query } = params;
 
-  const listing = await apiHit(`/anime?q=${query}`)
+  const listing = await apiHit(`/anime?q=${decodeURI(query)}`)
     .then(({ data }) => {
       return data;
     })

@@ -39,7 +39,7 @@ const SwiperCard = ({ data }: { data: IAnime[] }) => {
         },
       }}
     >
-      {data.map((api: IAnime, i: number) => {
+      {data?.map((api: IAnime, i: number) => {
         return (
           <SwiperSlide key={i}>
             <Link
