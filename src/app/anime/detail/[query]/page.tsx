@@ -1,3 +1,4 @@
+import YtPlayer from "@/components/Youtube";
 import { apiHit } from "@/libs/api";
 import Image from "next/image";
 
@@ -6,7 +7,7 @@ const Page = async ({ params }: { params: { query: string } }) => {
   const { data } = await apiHit(`/anime/${query}`);
 
   return (
-    <div className="px-4 pt-[10vh]">
+    <div className="px-4 py-[10vh]">
       <div className="flex flex-col gap-4 container mx-auto">
         <h1 className="text-2xl font-bold text-primary-content bg-primary text-center">
           {data.title}
@@ -59,6 +60,26 @@ const Page = async ({ params }: { params: { query: string } }) => {
               </span>
               <span className="font-bold text-primary">{data.status}</span>
             </h1>
+            <h1 className="flex flex-col gap-2 px-4 py-2 text-center">
+              <span className="font-bold px-2 text-primary-content bg-primary">
+                Type
+              </span>
+              <span className="font-bold text-primary">{data.type}</span>
+            </h1>
+            <h1 className="flex flex-col gap-2 px-4 py-2 text-center">
+              <span className="font-bold px-2 text-primary-content bg-primary">
+                Episodes
+              </span>
+              <span className="font-bold text-primary">{data.episodes}</span>
+            </h1>
+            {data.year && (
+              <h1 className="flex flex-col gap-2 px-4 py-2 text-center">
+                <span className="font-bold px-2 text-primary-content bg-primary">
+                  Year
+                </span>
+                <span className="font-bold text-primary">{data.year}</span>
+              </h1>
+            )}
           </div>
           <p className="text-justify m-4 mt-8">
             <span className="font-bold bg-primary px-2 text-primary-content">
@@ -68,7 +89,101 @@ const Page = async ({ params }: { params: { query: string } }) => {
             <span className="text-justify text-primary">{data.synopsis}</span>
           </p>
         </div>
-        <div className="flex flex-col"></div>
+        <div className="flex flex-col gap-4 border-2 border-primary p-6 justify-center items-center">
+          <div className="flex flex-col gap-4">
+            <p className="text-center">
+              <span className="font-bold bg-primary px-2 text-primary-content">
+                Trailer
+              </span>
+            </p>
+            <YtPlayer ytid={data.trailer.youtube_id} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <p className="text-start md:text-center">
+              <span className="font-bold bg-primary px-2 text-primary-content">
+                Aired
+              </span>
+              <br />
+              <span className="text-justify text-primary">
+                {data.aired.string}
+              </span>
+            </p>
+            <p className="text-start md:text-center">
+              <span className="font-bold bg-primary px-2 text-primary-content">
+                Duration
+              </span>
+              <br />
+              <span className="text-justify text-primary">{data.duration}</span>
+            </p>
+            {data.season && (
+              <p className="text-start md:text-center">
+                <span className="font-bold bg-primary px-2 text-primary-content">
+                  Season
+                </span>
+                <br />
+                <span className="text-justify text-primary">{data.season}</span>
+              </p>
+            )}
+            <p className="text-start md:text-center">
+              <span className="font-bold bg-primary px-2 text-primary-content">
+                Producers
+              </span>
+              <br />
+              {data.producers.map((item: any, i: number) => {
+                return (
+                  <span key={i} className="text-justify text-primary">
+                    {`[${i + 1}]`}
+                    {item.name}{" "}
+                  </span>
+                );
+              })}
+            </p>
+            <p className="text-start md:text-center">
+              <span className="font-bold bg-primary px-2 text-primary-content">
+                Studios
+              </span>
+              <br />
+              {data.studios.map((item: any, i: number) => {
+                return (
+                  <span key={i} className="text-justify text-primary">
+                    {`[${i + 1}]`}
+                    {item.name}{" "}
+                  </span>
+                );
+              })}
+            </p>
+            {data.licensors.length > 0 && (
+              <p className="text-start md:text-center">
+                <span className="font-bold bg-primary px-2 text-primary-content">
+                  Licensors
+                </span>
+                <br />
+                {data.licensors.map((item: any, i: number) => {
+                  return (
+                    <span key={i} className="text-justify text-primary">
+                      {`[${i + 1}]`}
+                      {item.name}{" "}
+                    </span>
+                  );
+                })}
+              </p>
+            )}
+            <p className="text-start md:text-center">
+              <span className="font-bold bg-primary px-2 text-primary-content">
+                Genres
+              </span>
+              <br />
+              {data.genres.map((item: any, i: number) => {
+                return (
+                  <span key={i} className="text-justify text-primary">
+                    {`[${i + 1}]`}
+                    {item.name}{" "}
+                  </span>
+                );
+              })}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
