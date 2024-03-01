@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="bg-neutral px-4 py-2 rounded-t-lg text-xs">
           <h1>
             Copyright © 2024 - Made by love{" "}
-            <a href="https://gihub.com/elvxk" className="font-bold">
+            <a href="https://github.com/elvxk" className="font-bold">
               elvxk
             </a>
           </h1>

@@ -3,10 +3,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
         hostname: "cdn.myanimelist.net",
-        pathname: "**",
       },
+      // {
+      //   hostname: "cdn.myanimelist.net",
+      // },
     ],
   },
 };

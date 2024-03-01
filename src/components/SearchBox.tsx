@@ -35,7 +35,7 @@ const SearchBox = ({
           ref={inputRef}
           type="text"
           className="grow"
-          placeholder="Search Anime or Manga"
+          placeholder={`Search ${panime && pmanga ? "anime or manga" : (panime && "anime") || (pmanga && "manga")}`}
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
