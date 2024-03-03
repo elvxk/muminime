@@ -3,7 +3,9 @@ import TypingText from "@/components/TypingText";
 import Link from "next/link";
 import { GiMummyHead } from "react-icons/gi";
 
+
 export default function Home() {
+  <></>
   return (
     <main className="container mx-auto px-4 items-center flex justify-center min-h-screen">
       <div className="flex flex-col items-center gap-2">
