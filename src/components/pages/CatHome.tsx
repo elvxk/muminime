@@ -17,10 +17,6 @@ const CatHome: React.FC<ICatHome> = ({ apiTop, apiRec, category }) => {
   const [topList, setTopList] = useState([]);
   const [recList, setRecList] = useState([]);
 
-  // const topList = await apiHit(apiTop);
-
-  // let recList = await apiHitNest(apiRec);
-  // recList = { data: recList.sort(() => 0.5 - Math.random()).slice(0, 10) };
   useEffect(() => {
     const fetchData = async () => {
       try {
