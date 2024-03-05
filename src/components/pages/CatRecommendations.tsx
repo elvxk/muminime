@@ -4,7 +4,6 @@
 import { apiHitNest } from "@/libs/api";
 import { useEffect, useState } from "react";
 import CardList from "../CardList";
-import { useRouter } from "next/navigation";
 
 interface ICatRec {
   category: "anime" | "manga";
@@ -13,7 +12,6 @@ const CatRecommendations: React.FC<ICatRec> = ({ category }) => {
   const [data, setData] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isClick, setIsClick] = useState(1);
-  const router = useRouter();
 
   useEffect(() => {
     setIsLoading(true);
