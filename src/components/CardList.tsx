@@ -24,10 +24,12 @@ const CardList = ({
   type,
   api,
   isLoading,
+  hideRating,
 }: {
   type: string;
   api: IfTopAnime[];
   isLoading?: boolean;
+  hideRating?: boolean;
 }) => {
   return (
     <>
@@ -57,20 +59,22 @@ const CardList = ({
                   <h1 className="card-title font-bold text-xl h-full text-center">
                     {anime.title}
                   </h1>
-                  <div className=" gap-3 flex-row sm:flex-col card-actions justify-center flex items-center">
-                    <div className="badge badge-secondary flex gap-2 py-3 w-full">
-                      <span className="scale-75">
-                        {anime.airing ? <FaPlay /> : <FaStop />}
-                      </span>
-                      {anime.status}
+                  {!hideRating && (
+                    <div className=" gap-3 flex-row sm:flex-col card-actions justify-center flex items-center">
+                      <div className="badge badge-secondary flex gap-2 py-3 w-full">
+                        <span className="scale-75">
+                          {anime.airing ? <FaPlay /> : <FaStop />}
+                        </span>
+                        {anime.status}
+                      </div>
+                      <div className="badge badge-primary flex gap-2 py-3 w-full">
+                        <span className="scale-75">
+                          <FaStar />
+                        </span>
+                        {anime.score}
+                      </div>
                     </div>
-                    <div className="badge badge-primary flex gap-2 py-3 w-full">
-                      <span className="scale-75">
-                        <FaStar />
-                      </span>
-                      {anime.score}
-                    </div>
-                  </div>
+                  )}
                 </div>
               </Link>
             );
