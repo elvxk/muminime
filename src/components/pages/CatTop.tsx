@@ -32,12 +32,12 @@ const CatTop: React.FC<ICatTop> = ({ category }) => {
   return (
     <div className="container mx-auto px-4 py-[10vh]">
       <div className="flex flex-col justify-center items-center">
-        <h1 className="mb-4 page text-xl font-bold text-center text-primary">
-          TOP ANIME
+        <h1 className="uppercase mb-4 page text-xl font-bold text-center text-primary">
+          TOP {category}
         </h1>
         <Pagination page={page} data={data} setPage={setPage} />
         <div className="mb-20">
-          <CardList api={data.data} isLoading={isLoading} type="anime" />
+          <CardList api={data.data} isLoading={isLoading} type={category} />
         </div>
         <Pagination page={page} data={data} setPage={setPage} />
       </div>
