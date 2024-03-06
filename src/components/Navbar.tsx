@@ -1,12 +1,16 @@
 "use client";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 import { GiMummyHead } from "react-icons/gi";
-import { IoMdLogIn, IoMdPersonAdd } from "react-icons/io";
+import { IoMdLogIn } from "react-icons/io";
 import { LiaHandPointUp } from "react-icons/lia";
+import Image from "next/image";
+import { CgLogOut, CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session, status } = useSession();
 
   return (
     <>
@@ -23,7 +27,7 @@ const Navbar = () => {
                 <span className="text-accent-content">NIME</span>
               </span>
             </Link>
-            <div className="hidden font-bold lg:flex gap-8">
+            <div className="text-primary hidden font-bold lg:flex gap-8">
               <NavbarBtn
                 href="/"
                 text="Home"
@@ -37,11 +41,6 @@ const Navbar = () => {
               <NavbarBtn
                 href="/manga"
                 text="Manga"
-                className="hover:text-primary-content transition-all"
-              />
-              <NavbarBtn
-                href="/character"
-                text="Character"
                 className="hover:text-primary-content transition-all"
               />
             </div>
@@ -59,15 +58,49 @@ const Navbar = () => {
           </div>
           {/* DESKTOP VIEW*/}
           <div className="hidden lg:flex gap-4">
-            <Link href="/" className="btn w-[130px] btn-primary btn-sm">
-              LOGIN <IoMdLogIn />
-            </Link>
-            <Link
-              href="/"
-              className="btn w-[130px] btn-sm btn-primary btn-outline"
-            >
-              REGISTER <IoMdPersonAdd />
-            </Link>
+            {status !== "authenticated" ? (
+              <Link href="/login" className="btn w-[130px] btn-primary btn-sm">
+                LOGIN <IoMdLogIn />
+              </Link>
+            ) : (
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="avatar flex gap-4 items-center justify-center"
+                >
+                  <h1 className="text-primary font-bold">
+                    {session.user?.name}
+                  </h1>
+                  <div className="w-8 rounded-full border-2 border-primary ">
+                    <Image
+                      src={session.user?.image as string}
+                      alt={session.user?.image as string}
+                      width={420}
+                      height={420}
+                      placeholder="blur"
+                      blurDataURL={session.user?.image as string}
+                      className="w-[20px] rounded-lg object-cover h-auto group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 mt-4 shadow bg-primary w-52"
+                >
+                  <li className="text-primary-content font-bold hover:text-primary hover:bg-primary-content transition-all">
+                    <Link href="/profile">
+                      <CgProfile /> Profile
+                    </Link>
+                  </li>
+                  <li className="text-primary-content font-bold hover:text-primary hover:bg-primary-content transition-all">
+                    <button onClick={() => signOut()}>
+                      <CgLogOut /> Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </nav>
@@ -86,22 +119,38 @@ const Navbar = () => {
           <button onClick={() => setIsOpen((prev) => !prev)}>
             <NavbarBtn href="/manga" text="MANGA" />
           </button>
-          <button onClick={() => setIsOpen((prev) => !prev)}>
-            <NavbarBtn href="/character" text="CHARACTER" />
-          </button>
           <div className="flex flex-col justify-center gap-2 w-full items-center text-sm mt-6 text-white">
-            <Link
-              href="/login"
-              className="btn btn-primary-content w-[186px] btn-xs hover:scale-110 transition-all"
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="btn btn-primary-content w-[186px] btn-xs hover:scale-110 transition-all"
-            >
-              Register
-            </Link>
+            {status !== "authenticated" ? (
+              <button onClick={() => setIsOpen((prev) => !prev)}>
+                <Link
+                  href="/login"
+                  className="btn btn-primary-content w-[186px] btn-xs hover:scale-110 transition-all"
+                >
+                  Login
+                </Link>
+              </button>
+            ) : (
+              <>
+                <h1 className="text-primary-content">{session.user?.name}</h1>
+                <button onClick={() => setIsOpen((prev) => !prev)}>
+                  <Link
+                    href="/profile"
+                    className="btn btn-primary-content w-[186px] btn-xs hover:scale-110 transition-all"
+                  >
+                    Profile
+                  </Link>
+                </button>
+                <button
+                  className="btn btn-primary-content w-[186px] btn-xs hover:scale-110 transition-all"
+                  onClick={() => {
+                    setIsOpen((prev) => !prev);
+                    signOut();
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
