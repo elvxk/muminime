@@ -1,7 +1,7 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import Loading from "../loading";
+import Loading from "../../loading";
 import Link from "next/link";
 import { CgLogOut } from "react-icons/cg";
 
@@ -43,7 +43,7 @@ const Page = () => {
               </Link>
               <Link
                 className="btn btn-outline btn-xs md:btn-md px-10 btn-primary"
-                href="/myanime"
+                href="/mymanga"
               >
                 My Manga
               </Link>
