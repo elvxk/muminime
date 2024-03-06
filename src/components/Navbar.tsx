@@ -3,7 +3,7 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 import { GiMummyHead } from "react-icons/gi";
-import { IoMdLogIn } from "react-icons/io";
+import { IoMdArrowDropdown, IoMdLogIn } from "react-icons/io";
 import { LiaHandPointUp } from "react-icons/lia";
 import Image from "next/image";
 import { CgLogOut, CgProfile } from "react-icons/cg";
@@ -63,14 +63,14 @@ const Navbar = () => {
                 LOGIN <IoMdLogIn />
               </Link>
             ) : (
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-hover">
                 <div
                   tabIndex={0}
                   role="button"
                   className="avatar flex gap-4 items-center justify-center"
                 >
-                  <h1 className="text-primary font-bold">
-                    {session.user?.name}
+                  <h1 className="text-primary font-bold flex gap-2 justify-center items-center">
+                    {session.user?.name} <IoMdArrowDropdown />
                   </h1>
                   <div className="w-8 rounded-full border-2 border-primary ">
                     <Image
