@@ -1,8 +1,8 @@
 import prisma from "@/libs/prisma";
 
 export async function POST(req: any) {
-  const { mal_id, user_email, cat } = await req.json();
-  const data = { mal_id, user_email, cat };
+  const { mal_id, user_email, cat, title, image } = await req.json();
+  const data = { mal_id, user_email, cat, title, image };
 
   const createCollection = await prisma.collection.create({ data });
 

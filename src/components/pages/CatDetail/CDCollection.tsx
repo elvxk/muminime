@@ -7,10 +7,14 @@ const CDCollection = ({
   id,
   user,
   cat,
+  title,
+  image,
 }: {
   id: string;
   user: string;
   cat: string;
+  title: string;
+  image: string;
 }) => {
   const [isCreated, setIsCreated] = useState(false);
 
@@ -21,6 +25,8 @@ const CDCollection = ({
         mal_id: id.toString(),
         user_email: user,
         cat: cat,
+        title: title,
+        image: image,
       })
       .then((res) => {
         return res.data;
