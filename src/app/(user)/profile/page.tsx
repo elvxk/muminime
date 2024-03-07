@@ -14,7 +14,6 @@ const Page = async () => {
 
   const countAnime = qanime.length;
   const countManga = qmanga.length;
-  console.log({ anime: countAnime, manga: countManga });
 
   return (
     <div className="container mx-auto px-4">
