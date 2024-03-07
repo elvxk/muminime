@@ -7,11 +7,13 @@ const CDImage = async ({
   alt,
   id,
   cat,
+  title,
 }: {
   img: string;
   alt?: string;
   id: string;
   cat: string;
+  title: string;
 }) => {
   const user = await authUserSession();
   const checkCollection = await prisma.collection.findFirst({
@@ -31,7 +33,13 @@ const CDImage = async ({
       />
       {user &&
         (!checkCollection ? (
-          <CDCollection id={id} user={user?.email as string} cat={cat} />
+          <CDCollection
+            id={id}
+            user={user?.email as string}
+            cat={cat}
+            title={title}
+            image={img}
+          />
         ) : (
           <h1>In Collection</h1>
         ))}

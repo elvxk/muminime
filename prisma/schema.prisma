@@ -10,6 +10,8 @@ datasource db {
 model Collection {
     id Int @id @default(autoincrement())
     mal_id String 
+    title String
+    image String
     user_email String
     cat String?
     @@unique([user_email, mal_id])

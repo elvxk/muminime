@@ -46,6 +46,7 @@ const CatDetail: React.FC<ICatDetail> = async ({ query, category }) => {
             alt={data.images.jpg.image_url}
             id={data.mal_id}
             cat={category}
+            title={data.title}
           />
           <p className="text-center sm:text-justify m-4 -mb-2">
             <span className="font-bold bg-primary px-2 text-primary-content">
