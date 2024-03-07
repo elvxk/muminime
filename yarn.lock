@@ -558,7 +558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20":
+"@types/node@npm:^20.11.25":
   version: 20.11.25
   resolution: "@types/node@npm:20.11.25"
   dependencies:
@@ -574,7 +574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18":
+"@types/react-dom@npm:^18.2.21":
   version: 18.2.21
   resolution: "@types/react-dom@npm:18.2.21"
   dependencies:
@@ -583,7 +583,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18":
+"@types/react@npm:*, @types/react@npm:^18.2.64":
   version: 18.2.64
   resolution: "@types/react@npm:18.2.64"
   dependencies:
@@ -955,7 +955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.0.1":
+"autoprefixer@npm:^10.4.18":
   version: 10.4.18
   resolution: "autoprefixer@npm:10.4.18"
   dependencies:
@@ -1846,7 +1846,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8":
+"eslint@npm:^8.57.0":
   version: 8.57.0
   resolution: "eslint@npm:8.57.0"
   dependencies:
@@ -2760,10 +2760,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^4.11.4, jose@npm:^4.15.4":
+"jose@npm:^4.15.4":
   version: 4.15.4
   resolution: "jose@npm:4.15.4"
   checksum: 10c0/ce8b29f84d6172a566b12b599dafa82f3bef0f16278bb76d562490ac1516fcc14017b05a39d20ffad25ed504f4996d4af4c9d3e0273d95b2d5559bf6d1112bc0
+  languageName: node
+  linkType: hard
+
+"jose@npm:^4.15.5":
+  version: 4.15.5
+  resolution: "jose@npm:4.15.5"
+  checksum: 10c0/9f208492f55ae9c547fd407c36f67ec3385051b5ca390e24f5449740f17359640b3f96fabfd38bc132cc4292b964c31b921bf356253373b1bd3eb6df799b7433
   languageName: node
   linkType: hard
 
@@ -3138,18 +3145,18 @@ __metadata:
   resolution: "muminime@workspace:."
   dependencies:
     "@prisma/client": "npm:^5.10.2"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^18"
-    "@types/react-dom": "npm:^18"
-    autoprefixer: "npm:^10.0.1"
+    "@types/node": "npm:^20.11.25"
+    "@types/react": "npm:^18.2.64"
+    "@types/react-dom": "npm:^18.2.21"
+    autoprefixer: "npm:^10.4.18"
     axios: "npm:^1.6.7"
     axios-rate-limit: "npm:^1.3.0"
     daisyui: "npm:^4.7.2"
-    eslint: "npm:^8"
+    eslint: "npm:^8.57.0"
     eslint-config-next: "npm:^14.1.3"
     next: "npm:^14.1.3"
-    next-auth: "npm:^4.24.6"
-    postcss: "npm:^8"
+    next-auth: "npm:^4.24.7"
+    postcss: "npm:^8.4.35"
     prisma: "npm:^5.10.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -3158,8 +3165,8 @@ __metadata:
     react-youtube: "npm:^10.1.0"
     sharp: "npm:^0.33.2"
     swiper: "npm:^11.0.7"
-    tailwindcss: "npm:^3.3.0"
-    typescript: "npm:^5"
+    tailwindcss: "npm:^3.4.1"
+    typescript: "npm:^5.4.2"
   languageName: unknown
   linkType: soft
 
@@ -3197,14 +3204,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:^4.24.6":
-  version: 4.24.6
-  resolution: "next-auth@npm:4.24.6"
+"next-auth@npm:^4.24.7":
+  version: 4.24.7
+  resolution: "next-auth@npm:4.24.7"
   dependencies:
     "@babel/runtime": "npm:^7.20.13"
     "@panva/hkdf": "npm:^1.0.2"
     cookie: "npm:^0.5.0"
-    jose: "npm:^4.11.4"
+    jose: "npm:^4.15.5"
     oauth: "npm:^0.9.15"
     openid-client: "npm:^5.4.0"
     preact: "npm:^10.6.3"
@@ -3218,7 +3225,7 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: 10c0/02d671af9e59ed074782506400553036bca0a2ad12787380641db74f2e9408fb8cc6a757dbecadfe7a2eab3a424e3eb1ba5f51899e2bb005e86c5e1aa2ea50c4
+  checksum: 10c0/40c5f51e02141615069d422431a4906c38f6050b29f654ecc99a92fd3c974958535eb7c5f7bbc3dfd2e5996825d7c4f20d8ca68f372e2f9aad2131701cb95b7d
   languageName: node
   linkType: hard
 
@@ -3678,7 +3685,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8, postcss@npm:^8.4.23":
+"postcss@npm:^8.4.23, postcss@npm:^8.4.35":
   version: 8.4.35
   resolution: "postcss@npm:8.4.35"
   dependencies:
@@ -4424,7 +4431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.3.0":
+"tailwindcss@npm:^3.4.1":
   version: 3.4.1
   resolution: "tailwindcss@npm:3.4.1"
   dependencies:
@@ -4615,7 +4622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5":
+"typescript@npm:^5.4.2":
   version: 5.4.2
   resolution: "typescript@npm:5.4.2"
   bin:
@@ -4625,13 +4632,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
   version: 5.4.2
-  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=d69c25"
+  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/22e2f213c3ffe5960c5eaec6c95c04e01858fed57a94be250746f540b935b2c18c3c3fc80d3ab65d28c0aba1eb76284557ba3bf521d28caee811c44ba2b648f9
+  checksum: 10c0/fcf6658073d07283910d9a0e04b1d5d0ebc822c04dbb7abdd74c3151c7aa92fcddbac7d799404e358197222006ccdc4c0db219d223d2ee4ccd9e2b01333b49be
   languageName: node
   linkType: hard
 
