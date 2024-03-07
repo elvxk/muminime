@@ -1,12 +1,20 @@
-"use client";
-import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Loading from "../../loading";
 import Link from "next/link";
-import { CgLogOut } from "react-icons/cg";
+import { authUserSession } from "@/libs/auth";
+import prisma from "@/libs/prisma";
+import LogoutBtn from "@/components/utils/LogoutBtn";
 
-const Page = () => {
-  const { data: session } = useSession();
+const Page = async () => {
+  const session = await authUserSession();
+  const qanime: any[] =
+    await prisma.$queryRaw`SELECT * from "Collection" where user_email=${session?.email} and cat='anime'`;
+  const qmanga: any[] =
+    await prisma.$queryRaw`SELECT * from "Collection" where user_email=${session?.email} and cat='manga'`;
+
+  const countAnime = qanime.length;
+  const countManga = qmanga.length;
+  console.log({ anime: countAnime, manga: countManga });
 
   return (
     <div className="container mx-auto px-4">
@@ -17,22 +25,22 @@ const Page = () => {
             <div className="avatar">
               <div className="w-24 rounded-full border-2 border-primary">
                 <Image
-                  src={session.user?.image as string}
-                  alt={session.user?.image as string}
+                  src={session.image as string}
+                  alt={session.image as string}
                   width={420}
                   height={420}
                   placeholder="blur"
-                  blurDataURL={session?.user?.image as string}
+                  blurDataURL={session.image as string}
                   className="w-[20px] rounded-lg object-cover h-auto group-hover:scale-105 transition-all duration-700"
                 />
               </div>
             </div>
             <h1 className="font-bold text-primary-content bg-primary px-2 md:text-xl">
-              {session?.user?.name}
+              {session.name}
             </h1>
             <p className="text-primary font-bold -mb-2">My Collection</p>
             <p className="text-primary -mt-2">
-              {"3" + " Anime" + " & " + "5" + " Manga"}
+              {countAnime + " Anime" + " & " + countManga + " Manga"}
             </p>
             <div className="flex flex-col md:flex-row gap-2">
               <Link
@@ -48,12 +56,7 @@ const Page = () => {
                 My Manga
               </Link>
             </div>
-            <button
-              className="text-primary gap-1 flex items-center justify-center transition-all hover:scale-95"
-              onClick={() => signOut()}
-            >
-              <CgLogOut /> Logout
-            </button>
+            <LogoutBtn />
           </div>
         </div>
       ) : (

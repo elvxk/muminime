@@ -1,3 +1,4 @@
+import { getServerSession } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -16,4 +17,9 @@ export const authOptions = {
   pages: {
     signIn: "/login",
   },
+};
+
+export const authUserSession = async () => {
+  const session = await getServerSession(authOptions);
+  return session?.user;
 };

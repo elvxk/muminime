@@ -9,15 +9,19 @@ interface ICatSearch {
 
 const CatSearch: React.FC<ICatSearch> = async ({ query, category }) => {
   const listing = await apiHit(`/${category}?q=${decodeURI(query)}`);
+  let anime: boolean = false;
+  let manga: boolean = false;
+  if (category === "anime") anime = true;
+  if (category === "manga") manga = true;
 
   return (
     <div className="container mx-auto px-4 pt-[10vh] flex justify-center flex-col items-center">
       <h1 className="text-xl font-bold text-center uppercase text-primary">
         RESULT SEARCH for {decodeURI(query)}
       </h1>
-      <SearchBox panime />
+      <SearchBox panime={anime} pmanga={manga} />
       {listing.data.length > 0 ? (
-        <CardList api={listing.data} type="anime" />
+        <CardList api={listing.data} type={category} />
       ) : (
         <div className="mt-20">
           <h1 className="text-lg text-primary-content p-2 font-bold text-center uppercase bg-primary">
