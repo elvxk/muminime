@@ -50,7 +50,7 @@ const CatHome: React.FC<ICatHome> = ({ apiTop, apiRec, category }) => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="container mx-auto px-4 pt-[10vh]">
+        <div className="container mx-auto px-4 py-[10vh]">
           {/* Search Box */}
           <div className="flex mb-8 justify-center flex-col items-center">
             <h1 className="-mb-4 text-lg font-bold text-primary uppercase">
