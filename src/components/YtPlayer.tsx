@@ -10,7 +10,9 @@ const YtPlayer = ({ ytid }: { ytid: string }) => {
   return (
     <YouTube
       videoId={ytid}
-      onReady={(e) => e.target.pauseVideo()}
+      onReady={(e: { target: { pauseVideo: () => any } }) =>
+        e.target.pauseVideo()
+      }
       opts={options}
     />
   );
