@@ -34,6 +34,7 @@ const CDCollection = ({
       .catch((e) => console.log(e));
     if (res.isCreated) {
       setIsCreated(true);
+      window.location.reload();
     }
   };
   return (
